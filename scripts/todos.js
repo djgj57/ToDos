@@ -55,26 +55,30 @@ window.addEventListener('load', () => {
     }
 
     //    Para obtener fecha
-    //codigo: https://www.freecodecamp.org/espanol/news/javascript-date-now-como-obtener-la-fecha-actual-con-javascript/
 
-    function formatoFecha(fecha, formato) {
+    function fechaDeHoy() {
+        let date = new Date()
 
-        const map = {
-            dd: fecha.getDate(),
-            mm: fecha.getMonth() + 1,
-            yy: fecha.getFullYear().toString().slice(-2),
-            yyyy: fecha.getFullYear()
+        let day = date.getDate().toString()
+        let month = date.getMonth() + 1
+        let year = date.getFullYear().toString().slice(-2)
+        
+        if(month < 10 && day < 10){
+          return `0${day}/0${month}/${year}`
+        } else if (month < 10) {
+            return `${day}/0${month}/${year}`
+        } else if (day < 10) {
+            return `0${day}/${month}/${year}`
+        } else {
+          return `${day}/${month}/${year}`
         }
-
-        return formato.replace(/dd|mm|yy|yyy/gi, matched => map[matched])
     }
    
     //Crea la tarea si esta no esta en blanco
     document.querySelector('button').addEventListener("click", function (event) {
         let tarea = document.getElementById("iTarea").value;
         if (tarea.length > 0) {
-            let hoy = new Date();
-            tareaAux = crearToDo(tarea, formatoFecha(hoy, 'dd/mm/yy'));
+            tareaAux = crearToDo(tarea, fechaDeHoy());
             //Se agrega para tener todos los toDo.
             listadoTodos.push(tarea);
             tareasPendientes.innerHTML += nuevoToDo(tareaAux);
