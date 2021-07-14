@@ -98,6 +98,7 @@ window.addEventListener("load", function () {
                 })
                 .then(function (data) {
                         sessionStorage.setItem('todosUsuario', JSON.stringify(data.jwt))
+                        location.reload()
                 })
                 .catch(function (error) {
                     $('#errorCuenta').innerText = "No es posible crear la cuenta, intente más tarde o con otro correo."
@@ -116,11 +117,11 @@ window.addEventListener("load", function () {
 
         // Reviso si hay toquen, para ir a la ventana de tareas.
 
-        let jwt = JSON.parse(sessionStorage.getItem('todosUsuario'))
+        // let jwt = JSON.parse(sessionStorage.getItem('todosUsuario'))
 
-        if (jwt != null) {
-            this.submit()
-        }
+        // if (jwt != null) {
+        //     this.submit()
+        // }
 
     }
 

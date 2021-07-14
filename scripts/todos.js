@@ -1,5 +1,20 @@
 window.addEventListener('load', () => {
 
+
+    // para ahorrar algo de.....
+    let $ = item => document.querySelector(item);
+
+    let jwt = JSON.parse(sessionStorage.getItem('todosUsuario'))
+    if (jwt == null) {
+        window.location.href = 'login.html'
+    }
+
+
+    //cerrar sesion
+    $('#logout').addEventListener('click', function() { sessionStorage.clear()
+    location.reload()})
+
+
     //Todos los toDo
 
     let listadoTodos = [
@@ -38,7 +53,7 @@ window.addEventListener('load', () => {
     function renderizarTodos() {
         listadoTodos.forEach(toDo => {
             tareasPendientes.innerHTML += nuevoToDo(toDo)
-            document.querySelectorAll('.tareas-pendientes .nombre')[document.querySelectorAll('.tareas-pendientes .nombre').length-1].innerText = toDo.description;
+            document.querySelectorAll('.tareas-pendientes .nombre')[document.querySelectorAll('.tareas-pendientes .nombre').length - 1].innerText = toDo.description;
         });
     }
 
@@ -62,18 +77,18 @@ window.addEventListener('load', () => {
         let day = date.getDate().toString()
         let month = date.getMonth() + 1
         let year = date.getFullYear().toString().slice(-2)
-        
-        if(month < 10 && day < 10){
-          return `0${day}/0${month}/${year}`
+
+        if (month < 10 && day < 10) {
+            return `0${day}/0${month}/${year}`
         } else if (month < 10) {
             return `${day}/0${month}/${year}`
         } else if (day < 10) {
             return `0${day}/${month}/${year}`
         } else {
-          return `${day}/${month}/${year}`
+            return `${day}/${month}/${year}`
         }
     }
-   
+
     //Crea la tarea si esta no esta en blanco
     document.querySelector('button').addEventListener("click", function (event) {
         let tarea = document.getElementById("iTarea").value;
@@ -82,7 +97,7 @@ window.addEventListener('load', () => {
             //Se agrega para tener todos los toDo.
             listadoTodos.push(tarea);
             tareasPendientes.innerHTML += nuevoToDo(tareaAux);
-            document.querySelectorAll('.tareas-pendientes .nombre')[document.querySelectorAll('.tareas-pendientes .nombre').length-1].innerText = tarea
+            document.querySelectorAll('.tareas-pendientes .nombre')[document.querySelectorAll('.tareas-pendientes .nombre').length - 1].innerText = tarea
         }
         document.getElementById("iTarea").value = "";
         event.preventDefault();
