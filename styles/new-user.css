@@ -4,7 +4,7 @@ h1 {
   color: rgb(116, 116, 116);
   font-weight: 300;
   margin-top: 1em;
-  margin-bottom: 2em;
+  margin-bottom: 1.5em;
 }
 
 form {
@@ -75,11 +75,11 @@ button {
   font-size: 2em;
 }
 
-/* Me lleva a crear cuenta */
+/* Me lleva al login */
 
-.newuser{
+.ingresar{
   margin-top: 1em;
-  padding: .3em 1em;
+  padding: .3em 3.2em;
   color: white;
   background-color: var(--primary);
   font-weight: 400;
@@ -95,10 +95,30 @@ button {
   margin-bottom: 0;
 }
 
+.error_new-cuenta{
+  color:red;
+  width: 100%;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.hiddenNombre
+{
+  display: none;
+}
+
+.hiddenApellido{
+  display: none;
+}
+
 .hiddenEmail{
   display: none;
 }
 
 .hiddenContrasena{
+  display: none;
+}
+
+.hiddenCuenta{
   display: none;
 }

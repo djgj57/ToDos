@@ -1,42 +1,61 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./styles/login.css">
+  <link rel="stylesheet" href="./styles/new-user.css">
   <title>ToDo</title>
 </head>
-<body>
 
-  <form>
+<body>
+  
+  <form id="formNewUser" action="lista-tareas.html">
+
+
     <h1>Nueva cuenta</h1>
 
-    <div class="image"></div>
+    <small class="hiddenCuenta error_new-cuenta" id="errorCuenta"></small>
+
+    <!-- <div class="image"></div> -->
 
     <label>
       Nombre:
-      <input type="text">
+      <input id="nombre" type="text">
     </label>
+    <small class="hiddenNombre error_new-user" id="errorNombre"></small>
     <label>
-      Contraseña:
-      <input type="password">
+      Apellido:
+      <input id="apellido" type="text">
     </label>
-    <label>
-      Repetir contraseña:
-      <input type="password">
-    </label>
+    <small class="hiddenApellido error_new-user" id="errorApellido"></small>
     <label>
       Email:
-      <input type="text">
+      <input id="email" type="text">
+    </label>
+    <small class="hiddenEmail error_new-user" id="errorEmail"></small>
+    <label>
+      Contraseña:
+      <input id="contrasena" type="password">
     </label>
 
-    <button>Crear Cuenta</button>
+    <label>
+      Repetir contraseña:
+      <input id="contrasenaR" type="password">
+    </label>
+    <small class="hiddenContrasena error_new-user" id="errorContrasena"></small>
 
+
+    <button>Crear Cuenta</button>
+    <div class="ingresar" id="ingresar">Ingresar</div>
     <div class="form-footer">
       <p>ToDo</p>
     </div>
   </form>
   
+
+  <script src="./scripts/crearUsuario.js"></script>
 </body>
+
 </html>
