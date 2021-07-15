@@ -1,6 +1,7 @@
 window.addEventListener("load", function () {
 
     // reviso si ya estoy logueado para ir a las tareas
+
     let jwt = JSON.parse(sessionStorage.getItem('todosUsuario'))
     if (jwt != null) {
         window.location.href = 'lista-tareas.html'
