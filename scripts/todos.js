@@ -1,6 +1,5 @@
 window.addEventListener('load', () => {
 
-
     // para ahorrar algo de.....
     let $ = item => document.querySelector(item);
 
@@ -11,16 +10,13 @@ window.addEventListener('load', () => {
         window.location.href = 'login.html'
     }
 
-
     //cerrar sesion
     $('#logout').addEventListener('click', function () {
         sessionStorage.removeItem('todosUsuario')
         location.reload()
     })
 
-
     //Todos los toDo - Se piden todas las tareas a la API https://ctd-todo-api.herokuapp.com/
-    
     const urlGettodos  = 'https://ctd-todo-api.herokuapp.com/v1/tasks';
 
     const setting = {
@@ -32,50 +28,8 @@ window.addEventListener('load', () => {
     
     fetch(urlGettodos, setting)
     .then((response) => response.json())
-    .then((json) =>   console.log(json))
+    .then((json) =>   dibujarTodo(json))
     .catch((e) => console.log(e))
-
-    let jsonData = `[
-        {
-        "id":80,
-        "description":"Aprender Java 80",
-        "completed":false,
-        "userId":150,
-        "createdAt":"2021-07-14T13:58:57.296Z"
-    },
-    {
-        "id":84,
-        "description":"Aprender Java 84",
-        "completed":true,
-        "userId":150,
-        "createdAt":"2021-07-14T13:58:57.296Z"
-    },
-    {
-        "id":81,
-        "description":"Aprender Java 81",
-        "completed":false,
-        "userId":150,
-        "createdAt":"2021-07-14T13:58:57.296Z"
-    },
-    {
-        "id":82,
-        "description":"Aprender Java 82",
-        "completed":false,
-        "userId":150,
-        "createdAt":"2021-07-14T13:58:57.296Z"
-    },
-    {
-        "id":83,
-        "description":"Aprender Javascript 83",
-        "completed":true,
-        "userId":150,
-        "createdAt":"2021-07-13T18:23:54.860Z"}
-    ]`;
-
-    // let listadoTodos = JSON.parse(jsonData)
-
-
-
 
     //template de un toDo en una funcion
     let nuevoToDo = toDo =>
@@ -88,34 +42,33 @@ window.addEventListener('load', () => {
          </li>`
 
     // Renderizar totas las tareas obtenidas
-
     function dibujarTodo(arreglo){
     // Se filtran completas e incompletas
-    let arrayTareasPendientes = listadoTodos.filter(x => x.completed == false)
-    let arrayTareasterminadas = listadoTodos.filter(x => x.completed == true)
+    let arrayTareasPendientes = arreglo.filter(x => x.completed == false)
+    let arrayTareasterminadas = arreglo.filter(x => x.completed == true)
+    renderizarTodos(arrayTareasPendientes)
+    renderizarTodosFinalizados(arrayTareasterminadas)
     }
 
     const tareasPendientes = document.querySelector('.tareas-pendientes');
 
-    function renderizarTodos() {
-        arrayTareasPendientes.forEach(toDo => {
+    function renderizarTodos(arregloFiltrado) {
+        arregloFiltrado.forEach(toDo => {
             tareasPendientes.innerHTML += nuevoToDo(toDo)
             document.querySelectorAll('.tareas-pendientes .nombre')[document.querySelectorAll('.tareas-pendientes .nombre').length - 1].innerText = toDo.description;
         });
     }
 
-    renderizarTodos();
-
     const tareasFinalizadas = document.querySelector('.tareas-terminadas');
 
-    function renderizarTodosFinalizados() {
-        arrayTareasterminadas.forEach(toDo => {
+    function renderizarTodosFinalizados(arregloFiltrado) {
+        arregloFiltrado.forEach(toDo => {
             tareasFinalizadas.innerHTML += nuevoToDo(toDo)
             document.querySelectorAll('.tareas-terminadas .nombre')[document.querySelectorAll('.tareas-terminadas .nombre').length - 1].innerText = toDo.description;
         });
     }
 
-    renderizarTodosFinalizados();
+  
 
     //crear nuevo toDo
 
