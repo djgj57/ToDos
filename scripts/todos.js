@@ -36,7 +36,7 @@ window.addEventListener('load', () => {
 
     //template de un toDo en una funcion
     let nuevoToDo = toDo =>
-        `<li class="tarea" id="${toDo.id}">
+        `<li class="tarea ${toDo.completed}" id="${toDo.id}">
             <div class="not-done"></div>
             <div class="descripcion">
                <p class="nombre"></p>
@@ -115,12 +115,10 @@ window.addEventListener('load', () => {
     //Actualizar tarea de pendiente a terminada
 
     function retornarTareas(tareas) {
-        console.log(tareas);
         for (let i = 0; i < tareas.length; i++) {
             tareas[i].addEventListener('click', function () {
-                let id = this.id;
                 let message = this.childNodes[3].childNodes[1].textContent;
-                actualizar(message, id, true)
+                actualizar(message, this.id, this.classList.contains('false'))
             })
         }
     }

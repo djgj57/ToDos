@@ -212,3 +212,13 @@ a {
   color: grey;
   text-decoration: line-through;
 }
+
+/* Actualizar tareas ----------------------------------------------------------- */
+
+.tarea.false{
+  cursor:s-resize;
+}
+
+.tarea.true{
+  cursor:n-resize;
+}
