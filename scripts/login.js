@@ -86,6 +86,6 @@ window.addEventListener("load", function () {
 
     // Me lleva a crear cuenta
 
-    $('#newuser').addEventListener('click', () => window.location.href = 'index.html')
+    $('#newuser').addEventListener('click', () => window.location.href = '../index.html')
 
 })

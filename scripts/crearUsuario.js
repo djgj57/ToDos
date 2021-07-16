@@ -4,7 +4,7 @@ window.addEventListener("load", function () {
     // reviso si ya estoy logueado para ir a las tareas
     let jwt = JSON.parse(sessionStorage.getItem('todosUsuario'))
     if (jwt != null) {
-        window.location.href = 'lista-tareas.html'
+        window.location.href = 'pages/lista-tareas.html'
     }
 
     // para ahorrar algo de.....
@@ -127,7 +127,7 @@ window.addEventListener("load", function () {
 
     // Me lleva a hacer login
 
-    $('#ingresar').addEventListener('click', () => window.location.href = 'login.html')
+    $('#ingresar').addEventListener('click', () => window.location.href = 'pages/login.html')
 
 
 })
