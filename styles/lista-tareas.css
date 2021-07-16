@@ -234,5 +234,5 @@ a {
 }
 
 .tarea.true{
-  cursor: url('assets/return.svg'), pointer;
+  cursor: src ='assets/return.svg', pointer;
 }
