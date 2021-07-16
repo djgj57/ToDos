@@ -230,9 +230,9 @@ a {
 /* Actualizar tareas ----------------------------------------------------------- */
 
 .tarea.false{
-  cursor: url('./assets/check.svg'), pointer;
+  cursor: url('assets/check.svg'), pointer;
 }
 
 .tarea.true{
-  cursor: url('./assets/return.svg'), pointer;
+  cursor: url('assets/return.svg'), pointer;
 }
