@@ -94,7 +94,21 @@ a {
   background-color: var(--app-grey);
   margin-right: 1em;
   border-radius: 50%;
-  cursor: pointer;
+}
+
+
+.garbaje{
+  position: relative;
+  top: -70px;
+  left: 101%;
+  width: 2em;
+  height: 2em;
+  border-radius: 50%;
+  cursor: url('/assets/garbaje.svg'), pointer;
+  background-color: var(--app-grey);
+  background-image: url('/assets/garbaje.svg');
+  margin: 0px;
+  padding: 0px;
 }
 
 /* Lista de tareas ----------------------------------------------------------- */
@@ -145,7 +159,7 @@ a {
   top: 100%;
   left: calc(.75em - 1px);
   display: block;
-  height: 4.5em;
+  height: 5.2em;
   width: 2px;
   background-color: var(--secondary);
 }
@@ -216,9 +230,9 @@ a {
 /* Actualizar tareas ----------------------------------------------------------- */
 
 .tarea.false{
-  cursor:s-resize;
+  cursor: url('/assets/check.svg'), pointer;
 }
 
 .tarea.true{
-  cursor:n-resize;
+  cursor: url('/assets/return.svg'), pointer;
 }

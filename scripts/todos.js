@@ -41,8 +41,9 @@ window.addEventListener('load', () => {
             <div class="descripcion">
                <p class="nombre"></p>
                 <p class="timestamp">Creada: ${toDo.createdAt}</p>
-            </div>
-         </li>`
+                </div>           
+         </li>
+         <div class="garbaje" data-ideliminar="${toDo.id}"></div>`
 
     // Renderizar totas las tareas obtenidas
     function dibujarTodos(arreglo) {
@@ -52,6 +53,7 @@ window.addEventListener('load', () => {
         renderizarTodos(arrayTareasPendientes)
         renderizarTodosFinalizados(arrayTareasterminadas)
         retornarTareas(document.querySelectorAll('.tarea'))
+        tareaAEliminar(document.querySelectorAll('.garbaje'))
     }
 
 
@@ -116,7 +118,7 @@ window.addEventListener('load', () => {
 
     function retornarTareas(tareas) {
         for (let i = 0; i < tareas.length; i++) {
-            tareas[i].addEventListener('click', function () {
+            tareas[i].addEventListener('click', function () {   
                 let message = this.childNodes[3].childNodes[1].textContent;
                 actualizar(message, this.id, this.classList.contains('false'))
             })
@@ -145,8 +147,20 @@ window.addEventListener('load', () => {
     }
 
     //Eliminar tarea
-    function eliminar(id) {
 
+    
+
+
+    function tareaAEliminar(tareas) {
+        for (let i = 0; i < tareas.length; i++) {
+            tareas[i].addEventListener('click', function () {   
+                eliminar(this.dataset.ideliminar)
+            })
+        }
+    }
+
+
+    function eliminar(id) {
         const urlEliminarTarea = `https://ctd-todo-api.herokuapp.com/v1/tasks/${id}`;
 
         const settingEliminarTarea = {
