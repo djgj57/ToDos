@@ -40,7 +40,7 @@ window.addEventListener('load', () => {
             <div class="not-done"></div>
             <div class="descripcion">
                <p class="nombre"></p>
-                <p class="timestamp">Creada: ${toDo.createdAt}</p>
+                <p class="timestamp">Creada:  ${toDo.createdAt.substring(0, toDo.createdAt.indexOf("T"))}</p>
                 </div>           
          </li>
          <div class="garbaje" data-ideliminar="${toDo.id}"></div>`
