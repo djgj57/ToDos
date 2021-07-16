@@ -104,9 +104,9 @@ a {
   width: 2em;
   height: 2em;
   border-radius: 50%;
-  cursor: url(assets/garbaje.svg), pointer;
+  cursor: url(./assets/garbaje.svg), pointer;
   background-color: var(--app-grey);
-  background-image: url(assets/garbaje.svg);
+  background-image: url(./assets/garbaje.svg);
   margin: 0px;
   padding: 0px;
 }
